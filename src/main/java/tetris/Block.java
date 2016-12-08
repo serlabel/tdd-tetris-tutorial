@@ -6,7 +6,7 @@ package tetris;
 
 public class Block {
 
-    private char block;
+    public char block;
 
     public Block(char block) {
         this.block = block;
