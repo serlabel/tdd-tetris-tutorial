@@ -41,4 +41,15 @@ public class Board {
         s[0][1] = b.block;
         falling = true;
     }
+
+    public void tick() {
+        for (int row = this.rows - 1; row >= 0; row--) {
+            for (int col = 0; col < this.columns; col++) {
+                if (row == 0)
+                    s[row][col] = '.';
+                else
+                    s[row][col] = s[row - 1][col];
+            }
+        }
+    }
 }
