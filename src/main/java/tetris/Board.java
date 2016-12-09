@@ -37,9 +37,14 @@ public class Board {
         return falling;
     }
 
-    public void drop(Block b) {
-        s[0][1] = b.block;
-        falling = true;
+    public void drop(Block b) throws IllegalStateException {
+        if (s[0][1] != '.') {
+            throw new IllegalStateException("already falling");
+        }
+        else {
+            s[0][1] = b.block;
+            falling = true;
+        }
     }
 
     public void tick() {
