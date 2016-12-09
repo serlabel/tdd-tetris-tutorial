@@ -48,12 +48,16 @@ public class Board {
     }
 
     public void tick() {
+        this.falling = false;
         for (int row = this.rows - 1; row >= 0; row--) {
             for (int col = 0; col < this.columns; col++) {
                 if (row == 0)
                     s[row][col] = '.';
-                else
+                else if (s[row][col] == '.' && s[row - 1][col] != '.') {
                     s[row][col] = s[row - 1][col];
+                    s[row -1][col] = '.';
+                    this.falling = true;
+                }
             }
         }
     }
