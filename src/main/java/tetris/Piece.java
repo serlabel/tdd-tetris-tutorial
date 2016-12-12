@@ -34,6 +34,13 @@ public class Piece {
     }
 
     public Piece rotateRight() {
+        for (int i = 0; i < this.columns - 1; i++) {
+            char top_left = this.piece[0][i];
+            this.piece[0][i] = this.piece[this.rows - i - 1][0];
+            this.piece[this.rows - i - 1][0] = this.piece[this.rows - 1][this.columns - i - 1];
+            this.piece[this.rows - 1][this.columns - i - 1] = this.piece[i][this.columns - 1];
+            this.piece[i][this.columns - 1] = top_left;
+        }
         return this;
     }
 }
