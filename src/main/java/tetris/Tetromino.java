@@ -11,18 +11,25 @@ public class Tetromino {
             "TTT\n" +
             "...\n");
 
-    private String shape;
+    private Piece[] shapes;
+    private int actual_rotation;
 
     public Tetromino(String shape) {
-        this.shape = shape;
+        actual_rotation = 0;
+        shapes = new Piece[4];
+        this.shapes[0] = new Piece(shape);
+        for(int i=1; i < 4; i++) {
+            this.shapes[i] = this.shapes[i-1].rotateRight();
+        }
     }
 
     public String toString() {
-        return shape;
+        return shapes[0].toString();
     }
 
-    public void rotateRight() {
-
+    public Tetromino rotateRight() {
+        actual_rotation = (actual_rotation + 1) % 4;
+        return new Tetromino(shapes[actual_rotation].toString());
     }
 
     public void rotateLeft() {
