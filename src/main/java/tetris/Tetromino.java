@@ -6,9 +6,10 @@ package tetris;
 
 public class Tetromino {
 
-    public final static Tetromino T_SHAPE = new Tetromino(".T.\n" +
-                                                                 "TTT\n" +
-                                                                 "...\n");
+    public final static Tetromino T_SHAPE = new Tetromino("" +
+            ".T.\n" +
+            "TTT\n" +
+            "...\n");
 
     private String shape;
 
