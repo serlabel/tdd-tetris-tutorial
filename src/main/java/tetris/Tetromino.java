@@ -12,6 +12,12 @@ public class Tetromino {
 
     }
 
+    public String toString() {
+        return ".T.\n" +
+               "TTT\n" +
+               "...\n";
+    }
+
     public void rotateRight() {
 
     }
