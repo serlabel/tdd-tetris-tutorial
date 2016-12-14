@@ -15,7 +15,7 @@ public class Tetromino {
     private int actual_rotation;
 
     public Tetromino(String shape) {
-        actual_rotation = 0;
+        this.actual_rotation = 0;
         shapes = new Piece[4];
         this.shapes[0] = new Piece(shape);
         for(int i=1; i < 4; i++) {
@@ -23,17 +23,21 @@ public class Tetromino {
         }
     }
 
+    private Tetromino(Piece[] rotations, int actual_rotation) {
+        this.shapes = rotations;
+        this.actual_rotation = actual_rotation;
+    }
+
     public String toString() {
-        return shapes[0].toString();
+        return shapes[actual_rotation].toString();
     }
 
     public Tetromino rotateRight() {
-        actual_rotation = (actual_rotation + 1) % 4;
-        return new Tetromino(shapes[actual_rotation].toString());
+        return new Tetromino(this.shapes, (this.actual_rotation + 1) % 4);
     }
 
-    public void rotateLeft() {
-        
+    public Tetromino rotateLeft() {
+        return new Tetromino(this.shapes, (this.actual_rotation + 3) % 4);
     }
 
 }
