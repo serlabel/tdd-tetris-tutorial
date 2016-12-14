@@ -22,6 +22,12 @@ public class Piece {
         }
     }
 
+    private Piece(char[][] piece) {
+        this.piece = piece;
+        this.rows = piece.length;
+        this.columns = piece[0].length;
+    }
+
     public String toString() {
         String ps = "";
         for (int i = 0; i < this.rows; i++) {
@@ -34,28 +40,22 @@ public class Piece {
     }
 
     public Piece rotateRight() {
-        for (int i = 0; i < this.rows/2 ; i++) {
-            for (int j = i; j < this.columns - i - 1; j++) {
-                char top_left = this.piece[i][j];
-                this.piece[i][j] = this.piece[this.rows - j - 1][i];
-                this.piece[this.rows - j - 1][i] = this.piece[this.rows - i - 1][this.columns - j - 1];
-                this.piece[this.rows - i - 1][this.columns - j - 1] = this.piece[j][this.columns - i - 1];
-                this.piece[j][this.columns - i - 1] = top_left;
+        char[][] rotated = new char[this.rows][this.columns];
+        for (int i = 0; i < this.rows; i++) {
+            for (int j = 0; j < this.columns; j++) {
+                rotated[j][this.columns - i - 1] = this.piece[i][j];
             }
         }
-        return this;
+        return new Piece(rotated);
     }
 
     public Piece rotateLeft() {
-        for (int i = 0; i < this.rows/2 ; i++) {
-            for (int j = this.columns -i - 1; j > i; j--) {
-                char top_right = this.piece[i][j];
-                this.piece[i][j] = this.piece[j][this.columns - i - 1];
-                this.piece[j][this.columns - i - 1] = this.piece[this.rows - i - 1][this.columns - j - 1];
-                this.piece[this.rows - i - 1][this.columns - j - 1] = this.piece[this.rows - j - 1][i];
-                this.piece[this.rows - j - 1][i] = top_right;
+        char[][] rotated = new char[this.rows][this.columns];
+        for (int i = 0; i < this.rows; i++) {
+            for (int j = 0; j < this.columns; j++) {
+                rotated[this.columns - j - 1][i] = this.piece[i][j];
             }
         }
-        return this;
+        return new Piece(rotated);
     }
 }
