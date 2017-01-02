@@ -16,6 +16,10 @@ public class Tetromino {
             "IIII.\n" +
             ".....\n" +
             ".....\n", 2);
+    public final static Tetromino O_SHAPE = new Tetromino("" +
+            ".OO\n" +
+            ".OO\n" +
+            "...\n", 1);
 
     private Piece[] shapes;
     private int actual_rotation;

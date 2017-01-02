@@ -155,7 +155,6 @@ public class Step3_RotatingTetrominoesTest extends Assert {
     }
 
 
-/*
     public class The_O_shape {
 
         @Before
@@ -189,5 +188,5 @@ public class Step3_RotatingTetrominoesTest extends Assert {
 //                    "...\n", shape.toString());
 //        }
     }
-*/
+
 }
