@@ -179,14 +179,14 @@ public class Step3_RotatingTetrominoesTest extends Assert {
                     "...\n", shape.toString());
         }
 
-//        @Test
-//        public void cannot_be_rotated_left() {
-//            shape = shape.rotateLeft();
-//            assertEquals("" +
-//                    ".OO\n" +
-//                    ".OO\n" +
-//                    "...\n", shape.toString());
-//        }
+        @Test
+        public void cannot_be_rotated_left() {
+            shape = shape.rotateLeft();
+            assertEquals("" +
+                    ".OO\n" +
+                    ".OO\n" +
+                    "...\n", shape.toString());
+        }
     }
 
 }
